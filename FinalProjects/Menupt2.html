@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moran Menu Example</title>
+    <style>
+    body
+    {
+        margin:0;
+        background-color:#e6ffee;
+    }
+    *
+    {
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+        text-align:left;
+    }
+    nav
+    {
+        display:flex;
+        flex-direction: row;
+        background-color: green;
+        height:31px;
+    }
+
+    .dropdown-content a
+    {
+        height:31px;
+    }
+    .dropdown
+    {
+        width:100px;
+        display:inline-block;
+        position:relative;
+        padding-left:0px;
+        padding-top: 5px;
+        padding-bottom: 8px;
+
+    }
+    .dropdown:hover
+    {
+        background-color: lightgreen;
+        width:100px;
+    }
+    .dropdown-content
+    {
+        display:none;
+        width:100px;
+        position: static;
+        padding-top: 8px;
+    }
+    .dropdown-content a
+    {
+        text-decoration: none;
+        width:100px;
+        height:31px;
+        padding-left: 10px;
+        padding-top: 8px;
+    }
+    .dropdown:hover .dropdown-content
+    {
+        display:flex;
+        flex-direction: column;
+        
+        background-color: lightgreen;
+    }
+    .dropdown-content a:hover
+    {
+        background-color: palegreen;
+    }
+    .dropbtn
+    {
+        padding-left: 10px;
+        font-size: 12pt;
+    }
+    
+    .container
+    {
+        background-color: white;
+        margin:22px;
+        padding: 12px 14px;
+        font-size: 13pt;
+        border-width: 5px;
+        width: 95%;
+    }
+    #cont1
+    {
+        border-style: none none none solid;
+        border-color: green;
+        
+    }
+    #cont2
+    {
+        border-style: none none none solid;
+        border-color:yellow;
+    }
+    #top
+    {
+        font-size: 15pt;
+    }
+    
+    </style>
+</head>
+<body>
+<nav>
+    <div class="dropdown">
+        <h class="dropbtn"><b>File</b></h>
+        <div class="dropdown-content">
+            <a href="">New</a>
+            <a href="">Open</a>
+            <a href="">Save</a>
+            <a href="">Print</a>
+            <a href="">Close</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <h id="edit" class="dropbtn">Edit</h>
+        <div class="dropdown-content">
+            <a href="">Undo</a>
+            <a href="">Redo</a>
+            <a href="">Cut</a>
+            <a href="">Copy</a>
+            <a href="">Paste</a>
+            <a href="">Delete</a>
+            <a href="">Select All</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <h class="dropbtn"><b>View</b></h>
+        <div class="dropdown-content">
+            <a href="">Zoom In</a>
+            <a href="">Zoom Out</a>
+            <a href="">Actual Size</a>
+            <a href="">Fit Page</a>
+            <a href="">Fit Width</a>
+            <a href="">Fit Height</a>
+            <a href="">Rotate Left</a>
+            <a href="">Rotate Right</a>
+            <a href="">Full Screen</a>
+        </div>
+    </div>
+</nav>
+<div id="cont1" class="container">
+    <h id="top"><b>Intructions</b></h>
+    <p>Recreate this page using <i><b>only CSS</b></i>. Do yourself a favor
+    and 1) Do not view the source. Figure it out yourself. 2) Do not search 
+    for the solution. Learn CSS until you know enough to do this.</p>
+</div>
+<div id="cont2" class="container">
+    <h id="top"><b>Extra Credit</b></h>
+    <p>Notice how the Edit menu (besides for not being bold) reacts to clicks.
+    If you clock the edit menu, it remains open until you click somewhere else.
+    (This you might need to search for)
+    </p>
+</div>
+</body>
+</html>
