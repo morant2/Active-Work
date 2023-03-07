@@ -12,13 +12,10 @@ const products = ref( getProducts());
             These will be the products
         </h1>
         
-        <h2 class="subtitle">
-            If you got here then you are logged in
-        </h2>
-        
+
         <div class="product-list">
             <div class="product" v-for="product in products" :key="product.id">
-                <img :src="product.thumbnail" alt="product.title"/>
+                <img :src="product.thumbnail" :alt="product.title"/>
                 <h3>{{ product.title }}</h3>
                 <p>{{ product.description }}</p>
                 <p>
@@ -47,7 +44,8 @@ const products = ref( getProducts());
 
     .product
     {
-        width: 12rem;
+        flex-basis:12rem
+        flex-grow:1;
         padding: .5rem;
         margin: 1rem;
         background-color: white;
