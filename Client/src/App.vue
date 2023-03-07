@@ -2,7 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import Cart from './components/Cart.vue';
 import Flyout from './components/Flyout.vue';
-import Navbar from './components/NavBar.vue';
+import NavBar from './components/NavBar.vue';
 </script>
 
 <template>
