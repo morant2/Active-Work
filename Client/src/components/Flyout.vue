@@ -4,7 +4,8 @@
 
 <template>
     <div class="flyout active">
-        <slot />
+        <slot></slot>
+
     </div>
 </template>
 
