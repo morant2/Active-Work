@@ -6,7 +6,7 @@
 <template>
   <main>
     <h1 class="title">
-      This is out home page
+      This is our home page
     </h1>
   </main>
 </template>
