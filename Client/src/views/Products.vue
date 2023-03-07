@@ -44,7 +44,7 @@ const products = ref( getProducts());
 
     .product
     {
-        flex-basis:12rem
+        flex-basis:12rem;
         flex-grow:1;
         padding: .5rem;
         margin: 1rem;
