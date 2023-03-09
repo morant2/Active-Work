@@ -2,7 +2,13 @@
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import LoginBadge from './LoginBadge.vue';
+import Cart from './Cart.vue';
+import Flyout from './Flyout.vue';
+import { quantity } from '../model/cart'
+
+    const isCartActive = ref(false);
     const isMenuActive = ref(false);
+
     function toggleMenu() 
     {
         isMenuActive.value = !isMenuActive.value;
@@ -66,6 +72,14 @@ import LoginBadge from './LoginBadge.vue';
           </div>
       
           <div class="navbar-end">
+            <div class="navbar-item">
+              <button class="button is-primary" :class="{ 'is-active': isCartActive }" @click="isCartActive = !isCartActive">
+                <span class="icon">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span class="tag is-danger quantity-tag">{{ quantity }}</span>
+                </span>
+              </button>
+            </div>
 
             <LoginBadge />
 
@@ -94,9 +108,19 @@ import LoginBadge from './LoginBadge.vue';
           </div>
         </div>
     </div>
+
       </nav>
-</template>
+      <Flyout :class="{'is-active': isCartActive}">
+        <Cart />
+      </Flyout>
+    </template>
 
 
 <style scoped>
+  .quantity-tag {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border-radius: 1rem;
+  }
 </style>
