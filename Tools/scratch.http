@@ -1,0 +1,13 @@
+GET google.com
+###
+https://dummyjson.com/products
+###
+
+POST https://dummyjson.com/products/add 
+Content-Type: application/json
+{
+  "title": "New Product",
+  "price": 100
+}
+###
+GET http://localhost:3000/products/1
