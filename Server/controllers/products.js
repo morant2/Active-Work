@@ -1,28 +1,47 @@
 const express = require('express');
 const router = express.Router();
+const model = require('../models/products');
 
 router
     .get('/', (req, res) => {
-        res.send({
-            items: [
-                {
-                    id: 1,
-                    name: 'Product 1'
-                }
-            ]
-        })
+        const list = model.getProducts();
+        res.send(list);
     })
     .get('/:id', (req, res) => {
-
+        const id = +req.params.id;
+        const product = model.getProductById(id);
+        re.send(product);
     })
     .post('/', (req, res) => {
-        res.send('Thank you for your order!')
-    })
-    .post('/:id', (req, res) => {
+        const product = req.body;
 
+        console.log({product});
+        console.log(req.query);
+        console.log(req.params);
+        console.log(req.headers);
+
+
+        model.addProduct(product);
+        res.send(product);
+    })
+    
+    .patch('/:id', (req, res) => {
+        const product = req.body;
+        model.updateProduct(product);
+        res.send(product);
     })
     .delete('/:id', (req, res) => {
-
+        const id = req.params.id;
+        model.deleteProduct(id);
+        res.send(id);
     })
 
 module.exports = router;
+
+/* Ways to pass information to the server:
+1. Query String Parameters
+2. Route Parameters
+3. Request Body
+4. Request Headers
+5. Cookies
+*/
