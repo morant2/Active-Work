@@ -5,31 +5,32 @@ function getProducts() {
 }
 
 function getProductById(id) {
-  return data.products.find(product => product.id === id);
+    return data.products.find(product => product.id === id);
 }
 
 function addProduct(product) {
- products.id=data.products.length+1;
- data.products.push(product);
+    product.id = data.products.length + 1;
+    data.products.push(product);
 }
 
-function updateProduct(id, product) {
-  const index = data.products.findIndex(product => product.id === id);
-  data.products[index] = product;
+function updateProduct(product) {
+    const index = data.products.findIndex(p => p.id === product.id);
+    data.products[index] = product;
 }
 
 function deleteProduct(id) {
-  const index = data.products.findIndex(product => product.id === id);
-  data.products.splice(index, 1);
+    const index = data.products.findIndex(p => p.id === id);
+    data.products.splice(index, 1);
 }
 
 function searchProducts(searchTerm) {
-  return data.products.filter(product => {
-    return product.title.toLowerCase().indexOf(searchTerm.toLowercase()) ||
-    product.description.toLowerCase().indexOf(searchTerm.toLowercase()) ||
-    product.brand.toLowerCase().indexOf(searchTerm.toLowercase());
-  });
+    return data.products.filter(product => {
+        return  product.title.toLowerCase().includes(searchTerm.toLowerCase())  ||
+            product.description.toLowerCase().includes(searchTerm.toLowerCase())  ||
+            product.brand.toLowerCase().includes(searchTerm.toLowerCase());
+    });
 }
+
 module.exports = {
     getProducts,
     getProductById,
@@ -37,4 +38,4 @@ module.exports = {
     updateProduct,
     deleteProduct,
     searchProducts
-}
+};
