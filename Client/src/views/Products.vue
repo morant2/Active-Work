@@ -4,8 +4,12 @@ import { getProducts, type  Product} from "../model/products";
 import { addToCart } from '@/model/cart';
 
 
-const products = ref( getProducts());
-
+const products = ref([] as Product[]);
+//or
+//const products = ref<Product[]>([]);
+getProducts().then((data) => {
+    products.value = data;
+});
 </script>
 
 <template>
@@ -16,6 +20,7 @@ const products = ref( getProducts());
         
 
         <div class="product-list">
+            <progress v-if="!products.length" class="progress is-small is-primary" max="100">15%</progress>
             <div class="product" v-for="product in products" :key="product.id">
                 <img :src="product.thumbnail" :alt="product.title"/>
                 <h3>{{ product.title }}</h3>

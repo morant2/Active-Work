@@ -1,9 +1,16 @@
 
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
+import * as myFetch from "./myfetch";
 
 const session = reactive({
+
     user: null as User | null,
+    isLoading:false,
+    messages: [] as {
+        msg: string,
+        type: "success" | "error" | "warning" | "info"
+    }[],
 })
 
 interface User {
@@ -16,6 +23,22 @@ interface User {
 
 export function useSession() {
     return session;
+}
+
+export function api(url: string)
+{
+    session.isLoading=true;
+    return myFetch.api(url)
+        .catch(err => {
+            console.error(err);
+            session.messages.push({
+                msg: err.message ?? JSON.stringify(err),
+                type: "error",
+            })
+        })
+       /* .finally(() => {
+            session.isLoading = false;
+        })*/
 }
 
 export function login() {
