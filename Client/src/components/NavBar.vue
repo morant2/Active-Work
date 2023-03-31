@@ -5,7 +5,7 @@ import LoginBadge from './LoginBadge.vue';
 import Cart from './Cart.vue';
 import Flyout from './Flyout.vue';
 import { quantity } from '../model/cart'
-import type Notifications from './Notifications.vue';
+import Notifications from './Notifications.vue';
 
     const isCartActive = ref(false);
     const isMenuActive = ref(false);
@@ -75,8 +75,10 @@ import type Notifications from './Notifications.vue';
           <div class="navbar-end">
 
             <div class="navbar-item">
+
             <Notifications />
-              <button class="button is-primary" :class="{ 'is-active': isCartActive }" @click="isCartActive = !isCartActive">
+              
+            <button class="button is-primary" :class="{ 'is-active': isCartActive }" @click="isCartActive = !isCartActive">
                 <span class="icon">
                   <i class="fas fa-shopping-cart"></i>
                   <span class="tag is-danger quantity-tag">{{ quantity }}</span>
