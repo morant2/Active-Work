@@ -4,11 +4,9 @@ import { getProducts, type  Product} from "../model/products";
 import { addToCart } from '@/model/cart';
 
 
-const products = ref([] as Product[]);
-//or
-//const products = ref<Product[]>([]);
+const products = ref<Product[]>([]);
 getProducts().then((data) => {
-    products.value = data;
+    products.value = data.data;
 });
 </script>
 
