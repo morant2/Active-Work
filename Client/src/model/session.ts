@@ -1,15 +1,16 @@
+/*  B"H
+*/
 
 import { reactive } from "vue";
 import { useRouter } from "vue-router";
 import * as myFetch from "./myfetch";
 
 const session = reactive({
-
     user: null as User | null,
-    isLoading:false,
+    isLoading: false,
     messages: [] as {
         msg: string,
-        type: "success" | "danger" | "warning" | "info"
+        type: "success" | "danger" | "warning" | "info",
     }[],
 })
 
@@ -25,18 +26,17 @@ export function useSession() {
     return session;
 }
 
-export function api(url: string)
-{
+export function api(url: string, data?: any, method?: string, headers?: any) {
     session.isLoading = true;
-    return myFetch.api(url)
+    return myFetch.api(url, data, method, headers)
         .catch(err => {
             console.error({err});
             session.messages.push({
-                msg: err.message ?? JSON.stringify(err),
+                msg: err.message  ?? JSON.stringify(err),
                 type: "danger",
             })
         })
-       .finally(() => {
+        .finally(() => {
             session.isLoading = false;
         })
 }
@@ -49,7 +49,7 @@ export function login() {
 
 export function useLogout() {
     const router = useRouter();
-
+    
     return function(){
         console.log({router});
         session.user = null;
@@ -57,7 +57,6 @@ export function useLogout() {
         router.push("/login");
     }
 }
-
 
 export function addMessage(msg: string, type: "success" | "danger" | "warning" | "info") {
     console.log({msg, type});
