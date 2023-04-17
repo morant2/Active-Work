@@ -3,7 +3,6 @@
 
 import type { DataEnvelope, DataListEnvelope } from "./myfetch";
 import { api } from "./session";
-
 export interface Product {
     id: number;
     title: string;
