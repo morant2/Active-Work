@@ -6,7 +6,6 @@ const DB_Name = process.env.MONGO_DB_NAME ?? 'chopify';
 const client = new MongoClient(url);
 
 async function connect() {
-    
     const db = await client.connect();
     return db.db(DB_Name);
 }
